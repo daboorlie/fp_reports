@@ -1,0 +1,251 @@
+<html>
+<head>	
+	<title>Лабораторна робота №2</title>
+	<style type="text/css">
+	h1 {
+		font-family: Century Gothic;
+		font-weight: bold;
+		font-style: normal;
+		font-size: 72px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h4 {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+    }
+	.head_block { 
+		width: 100%;
+		padding: 0px;
+		padding-bottom: 0px; 
+		outline: solid 10px #2f2f2f; 
+		border: solid 1px #2f2f2f; 
+		float: center;
+		background-color: #2f2f2f;
+    }
+	.script_block {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 3px;
+		margin-left: 64px;
+	}
+	.title_text {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		text-align: center;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+	.title_text2 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+	.image {
+		margin-left: 64px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<div class="head_block">
+		<div class="title_text">МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</div>
+		<div class="title_text">КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ імені Тараса Шевченка</div>
+		<div class="title_text">ФАКУЛЬТЕТ ІНФОРМАЦІЙНИХ ТЕХНОЛОГІЙ</div>
+		<div class="title_text"><b>Кафедра програмних систем і технологій</b></div>
+		<div class="title_text">Дисципліна:</div>
+		<div class="title_text"><b>«Функціональне програмування»<b></div>
+		<h1>Звіт з лабораторної роботи №2</h1>
+		<div class="title_text">на тему: </div>
+		<div class="title_text"><b>Рекурентні співвідношення для тригонометричних, експоненціальних функцій та ланцюгові дроби</b></div>
+		<div class="title_text2"><b>Виконав:</b> Бурлай Дмитро Ігорович</div>
+		<div class="title_text2"><b>Група:</b> ІПЗ-42</div>
+		<div class="title_text2"><b>Форма навчання:</b> денна</div>
+		<div class="title_text2"><b>Перевірила:</b> Ніколаєнко Анастасія Юріївна</div>
+		<div class="title_text">2021</div>
+	</div>	
+	
+	<hr width=100% size=1 color=grey>
+	<hr width=100% size=1 color=grey>
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<b>Зміст:</b>
+			</font>
+			<div><a href="#goal" style="padding-left: 64px">Мета роботи</a></div>
+			<div><a href="#task" style="padding-left: 64px">Постановка завдання</a></div>
+			<div><a href="#language" style="padding-left: 64px">Середовище Dr.Racket</a></div>
+			<div><a href="#diagram" style="padding-left: 64px">Структура програми (HIPO діаграма)</a></div>
+			<div><a href="#code" style="padding-left: 64px">Код програми</a></div>
+			<div><a href="#result" style="padding-left: 64px">Результат роботи програми</a></div>
+			<div><a href="#summary" style="padding-left: 64px">Висновки</a></div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="goal"></a>
+			<b>Мета роботи:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			    Опанувати теоретичні основи застосування рекурентних співвідношень для обчислення тригонометричних, експоненціальних, степеневих функцій та розробити програми функціональними мовам програмування для обчислення їх значень 
+			</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="task"></a>
+			<b>Постановка завдання:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			<div>    1.	Написати процедури, що обчислюють задану функцію за допомогою рекурентних послідовностей, розвинувши її у ряд Маклорена (або Тейлора).</div>
+			<div>    2.	Параметр функції має змінюватися від заданого в процесі виклику мінімального значення до максимального значення із певним кроком.</div>
+			<div>    3.	Розвинення функції в ряд здійснювати із заданою точністю. Точність розрахунку задавати в діапазоні від 10-2 до 10-6.</div>
+			<div>    4.	Для розвинення функції у ряд Маклорена (абоТейлора) створити власну функцію, яка розраховує суму ряду за рекурентним співвідношенням.</div>
+			<div>    5.	Значення функції tg(x) обчислювати через функції sin(x) та cos(x).</div>
+			<div>    6.	Визначити похибку обчислення наближених значень функції як різницю абсолютних значень наближеного обчислення та стандартного значення функції.</div>
+			<div>    7.	Стандартне значення функції обчислювати за допомогою бібліотечних математичних функцій.</div>
+			</font>
+		</div>
+		<img class="image" src="task2.jpg">
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="language"></a>
+			<b>Середовище Dr.Racket:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			    Dr.Racket підтримує ряд діалектів та стандартів, в тому числі діалект функціональної мови програмування Scheme, яка якраз вивчалася та використовувалася в ході виконання даної роботи.
+			</font>
+		</div>
+	</div>
+		
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="diagram"></a>
+			<b>Структура програми (HIPO діаграма):</b>
+			</font>
+		</div>
+		
+		<img class="image" src="diagram2.jpg">
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<a name="code"></a>
+			<font color="black" size=36>
+			<b>Код програми:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<div class="script_block">
+				<font color="black">
+				<div style="padding-left: 32px; padding-top: 16px">#lang racket</div>
+				<div style="padding-left: 32px">(define (task1 n) ; ініціалізація функції для задачі 1</div>
+				<div style="padding-left: 32px">  (count -2 n)</div>
+				<div style="padding-left: 32px">  )</div>
+				<div style="padding-left: 32px">(define (count x n) ; функція для виведення обчислених значень</div>
+				<div style="padding-left: 32px">  (cond ((<= x 2) (begin</div>
+				<div style="padding-left: 32px">		(display "x = ")</div>
+				<div style="padding-left: 32px">		(display x)</div>
+				<div style="padding-left: 32px">		(newline)</div>
+				<div style="padding-left: 32px">		(display(sol1 x n)) ; виводимо рішення через ряд Тейлора</div>
+				<div style="padding-left: 32px">		(newline)</div>
+				<div style="padding-left: 32px">		(display(sol2 x)) ; виводимо рішення через вбудовану функцію</div>
+				<div style="padding-left: 32px">		(newline)</div>
+				<div style="padding-left: 32px">		(newline)</div>
+				<div style="padding-left: 32px">		(count (+ x 0.5) n)</div>
+				<div style="padding-left: 32px">		)</div>
+				<div style="padding-left: 32px">	  ))</div>
+				<div style="padding-left: 32px">  )</div>
+				<div style="padding-left: 32px">(define (sol1 x n) ; функція для знаходження рішення через ряд Тейлора</div>
+				<div style="padding-left: 32px">  (cond ((and (>= x 1) (<= x 2)) (sqrtc (- 15 (* x x)) n))</div>
+				<div style="padding-left: 32px">		((and (>= x -1) (< x 1)) (/ 1 (sqrtc (+ x (* x x)) n)))</div>
+				<div style="padding-left: 32px">	)</div>
+				<div style="padding-left: 32px">  )</div>
+				<div style="padding-left: 32px">(define (sol2 x) ; функція для знаходження рішення через вбудовану функцію</div>
+				<div style="padding-left: 32px">  (cond ((and (>= x 1) (<= x 2)) (sqrt (- 15 (* x x))))</div>
+				<div style="padding-left: 32px">		((and (>= x -1) (< x 1)) (/ 1 (sqrt (+ x (* x x)))))</div>
+				<div style="padding-left: 32px">	)</div>
+				<div style="padding-left: 32px">  )</div>
+				<div style="padding-left: 32px">(define (sqrtc x n) ; функція для розрахунку квадратного кореня через ряд Тейлора</div>
+				<div style="padding-left: 32px">  (if (= n 0)</div>
+				<div style="padding-left: 32px">	  1</div>
+				<div style="padding-left: 32px">	  (* 0.5 (+ (sqrtc x (- n 1)) (/ x (sqrtc x (- n 1)))))</div>
+				<div style="padding-left: 32px">	  )</div>
+				<div style="padding-left: 32px">  )</div>
+				<div style="padding-left: 32px">(define (task2 a) ; ініціалізація функції для задачі 2</div>
+				<div style="padding-left: 32px">  (sol a 1)</div>
+				<div style="padding-left: 32px">  )</div>
+				<div style="padding-left: 32px">(define (sol a n) ; функція розрахунку рішення виразу</div>
+				<div style="padding-left: 32px">  (if (< n 256)</div>
+				<div style="padding-left: 32px">	  (/ n (+ (* a a) (sol a (* n 2)))) ; n / (a^2 + sol(a, n*2))</div>
+				<div style="padding-left: 32px">	  (* (/ n (* a a)) 1.0) ; n / a^2</div>
+				<div style="padding-left: 32px">	  )</div>
+				<div style="padding-left: 32px; padding-bottom: 16px">  )</div>
+				</font>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<a name="result"></a>
+			<font color="black" size=36>
+			<b>Результат роботи програми:</b>
+			</font>
+		</div>
+		
+		<img class="image" src="console2.jpg">
+		
+		<div class="title_text2">
+			<font color="black">
+			    В результаті маємо рішення двох завдань. В першому завданні виводиться рішення на заданому проміжку двома способами: через ряд Тейлора та через вбудовану функцію. В другому завданні обчислюється рішення скінченого рекурентного виразу.
+			</font>
+		</div>
+		
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<a name="summary"></a>
+			<font color="black" size=36>
+			<b>Висновки:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			    В результаті роботи було вирішено дві заданні програмні задачі за допомогою мови Racket. У першій задачі програма на деяких значеннях видавала значення void або комплексне число через те, що в розрахунках попадалися значення корня числа менше нуля або через ділення на 0. У другій задачі програма обчислює значення скінченного рекурентного виразу.
+			</font>
+		</div>
+	</div>
+</body>
+
+</html>
