@@ -1,0 +1,221 @@
+<html>
+<head>	
+	<title>Лабораторна робота №1</title>
+	<style type="text/css">
+	h1 {
+		font-family: Century Gothic;
+		font-weight: bold;
+		font-style: normal;
+		font-size: 72px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h2 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h3 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		color: #ffffff;
+    }
+	h4 {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+    }
+	.block1 { 
+    width: 100%;
+    padding: 0px;
+    padding-bottom: 0px; 
+    outline: solid 10px #2f2f2f; 
+	border: solid 1px #2f2f2f; 
+    float: center;
+	background-color: #2f2f2f;
+    }
+	.block2 { 
+	width: 60%;
+    padding-left: 10px; 
+	border: solid 3px #1d7373; 
+	border-radius: 10px;
+    }
+	.block3 {
+	width: 100%;
+	padding-left: 64px;
+	}
+
+	</style>
+	
+	<div class="block1">
+		<h2>МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</h2>
+		<h2>КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ імені Тараса Шевченка</h2>
+		<h2>ФАКУЛЬТЕТ ІНФОРМАЦІЙНИХ ТЕХНОЛОГІЙ</h2>
+		<h2><b>Кафедра програмних систем і технологій</b></h2>
+		<h2>Дисципліна:</h2>
+		<h2><b>«Функціональне програмування»<b></h2>
+		<h1>Звіт з лабораторної роботи №1</h1>
+		<h2>на тему: </h2>
+		<h2><b>Використання рекурсії для організації повторювальних процесів</b></h2>
+		<h3><b>Виконав:</b> Бурлай Дмитро Ігорович</h3>
+		<h3><b>Група:</b> ІПЗ-42</h3>
+		<h3><b>Форма навчання:</b> денна</h3>
+		<h3><b>Перевірила:</b> Ніколаєнко Анастасія Юріївна</h3>
+		<h2>2021</h2>
+	</div>	
+</head>
+
+<body>
+	<hr width=100% size=1 color=grey>
+	<hr width=100% size=1 color=grey>
+	<div>
+		<h3>
+		<font color="black" size=36>
+		<b>Мета роботи:</b>
+		</font>
+		</h3>
+		<h3>
+		<font color="black">
+		Сформувати декларативне мислення в галузі програмування завдяки використанню чистих функцій, рекурсій замість циклів, запобіганню даних, що змінюються. Опанувати застосування рекурсивних функцій для обчислювальних процесів.
+		</font>
+		</h3>
+	</div>
+	
+	<div>
+		<h3>
+		<font color="black" size=36>
+		<b>Постановка завдання:</b>
+		</font>
+		</h3>
+		<h3>
+		<font color="black">
+		Написати процедури, що обчислюють задану функцію за допомогою рекурсивного процесу. Продемонструвати застосування звичайної та хвостової рекурсії. 
+		</font>
+		</h3>
+		<img src="task1.jpg">
+	</div>
+	
+	<div>
+		<h3>
+		<font color="black" size=36>
+		<b>Середовище Dr.Racket:</b>
+		</font>
+		</h3>
+		<h3>
+		<font color="black">
+		Dr.Racket підтримує ряд діалектів та стандартів, в тому числі діалект функціональної мови програмування Scheme, яка якраз вивчалася та використовувалася в ході виконання даної роботи.
+		</font>
+		</h3>
+	</div>
+		
+	<div>
+		<h3>
+		<font color="black" size=36>
+		<b>Структура програми (HIPO діаграма):</b>
+		</font>
+		</h3>
+		
+		<img src="diagram1.jpg">
+		
+		<h3>
+		<font color="black">
+		
+		</font>
+		</h3>
+	</div>
+	
+	<div>
+		<h3>
+		<font color="black" size=36>
+		<b>Код програми:</b>
+		</font>
+		</h3>
+		<h3>
+		<div class="block3">
+		<div class="block2">
+		<font color="black">
+		<h4>	(define (task1 n k)		<i>#ініціалізація функції task1</i></h4>
+		<h4>	    (c n k)		<i>#виклик функції с</i></h4>	
+		<h4>	)</h4>
+		<h4>        </h4>
+		<h4>	(define (c n k)		<i>#ініціалізація функції с</i></h4>
+		<h4>	(if (and (> n 0) (not (eq? n k)))		<i>#оператор умови</i></h4>
+		<h4>	    (+ (c (- n 1) (- k 1) ) (c (- n 1) k)) 		<i>#дії які викон. за умови</i></h4>
+		<h4>	    (if (or (= n k) (= k 0) (< n 0)) 	<i>#в протилеж. випадку перевірити наступну умову</i></h4>
+		<h4>	        1		<i>#повернути якщо умова викон.</i></h4>
+		<h4>	        0		<i>#повернути якщо умова не викон.</i></h4>
+		<h4>	        )</h4>
+		<h4>	    )</h4>
+		<h4>	)</h4>
+		<h4>	    </h4>
+		<h4>	(define (task2 a b)		<i>#ініціалізація функції task2</i></h4>
+		<h4>	    (display a)		<i>#вивести а</i></h4>
+		<h4>	    (display " ") 	<i>#вивести пробіл(для коректного відобр.)</i></h4>
+		<h4>	    (if (> a b)		<i>#перевірити умову</i></h4>
+		<h4>	        (task2 (- a 1) b)	<i>#повернути якщо умова викон.</i></h4>
+		<h4>	        (display "")	<i>#повернути якщо умова не викон.</i></h4>
+		<h4>	    )</h4>
+		<h4>	    (if (< a b)		<i>#перевірити умову</i></h4>
+		<h4>	        (task2 (+ a 1) b)	<i>#повернути якщо умова викон.</i></h4>
+		<h4>	        (display "")	<i>#повернути якщо умова не викон.</i></h4>
+		<h4>	    )</h4>
+		<h4>	)</h4>
+		</font>
+		</h3>
+		</div>
+		</div>
+	</div>
+	
+	<div>
+		<h3>
+		<font color="black" size=36>
+		<b>Результат роботи програми:</b>
+		</font>
+		</h3>
+		
+		<img src="console1.jpg">
+		
+		<h3>
+		<font color="black">
+		Перевірка обчислень у завданні 1:
+		</font>
+		</h3>
+		
+		<img src="solution1.jpg">
+		
+		<h3>
+		<font color="black">
+		Порахувавши комбінації за формулами та через написану програму бачимо, що відповіді збігаються, а отже програма працює правильно.
+		</font>
+		</h3>
+		
+		<h3>
+		<font color="black">
+		В результаті маємо рішення двох завдань: перше виконано методом звичайної рекурсії, а друге - методом хвостової рекурсії.
+		</font>
+		</h3>
+		
+	</div>
+	
+	<div>
+		<h3>
+		<font color="black" size=36>
+		<b>Висновки:</b>
+		</font>
+		</h3>
+		<h3>
+		<font color="black">
+		У цій лабораторній роботі було опановано застосування рекурсивних функцій у вирішенні деяких обчислювальних процесів. Було ознайомлено із середовищем розробки Dr.Racket, та вирішено завдання із використанням рекурсивного методу.
+		</font>
+		</h3>
+	</div>
+</body>
+
+</html>
