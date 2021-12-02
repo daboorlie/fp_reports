@@ -1,0 +1,344 @@
+<html>
+<head>	
+	<title>Лабораторна робота №3</title>
+	<style type="text/css">
+	h1 {
+		font-family: Century Gothic;
+		font-weight: bold;
+		font-style: normal;
+		font-size: 72px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h4 {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+    }
+	.head_block { 
+		width: 100%;
+		padding: 0px;
+		padding-bottom: 0px; 
+		outline: solid 10px #2f2f2f; 
+		border: solid 1px #2f2f2f; 
+		float: center;
+		background-color: #2f2f2f;
+    }
+	.block2 { 
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 10px;
+    }
+	.block3 {
+		width: 100%;
+		padding-left: 64px;
+	}
+	.script_block {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 3px;
+	}
+	.title_text {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		text-align: center;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+	.title_text2 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<div class="head_block">
+		<div class="title_text">МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</div>
+		<div class="title_text">КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ імені Тараса Шевченка</div>
+		<div class="title_text">ФАКУЛЬТЕТ ІНФОРМАЦІЙНИХ ТЕХНОЛОГІЙ</div>
+		<div class="title_text"><b>Кафедра програмних систем і технологій</b></div>
+		<div class="title_text">Дисципліна:</div>
+		<div class="title_text"><b>«Функціональне програмування»<b></div>
+		<h1>Звіт з лабораторної роботи №3</h1>
+		<div class="title_text">на тему: </div>
+		<div class="title_text"><b>Форми lambda та let, вираз присвоєння set! для розв’язання нелінійних рівнянь та чисельного інтегрування функцій</b></div>
+		<div class="title_text2"><b>Виконав:</b> Бурлай Дмитро Ігорович</div>
+		<div class="title_text2"><b>Група:</b> ІПЗ-42</div>
+		<div class="title_text2"><b>Форма навчання:</b> денна</div>
+		<div class="title_text2"><b>Перевірила:</b> Ніколаєнко Анастасія Юріївна</div>
+		<div class="title_text">2021</div>
+	</div>	
+	
+	<hr width=100% size=1 color=grey>
+	<hr width=100% size=1 color=grey>
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<b>Зміст:</b>
+			</font>
+			<div><a href="#goal" style="padding-left: 64px">Мета роботи</a></div>
+			<div><a href="#task" style="padding-left: 64px">Постановка завдання</a></div>
+			<div><a href="#language" style="padding-left: 64px">Середовище Dr.Racket</a></div>
+			<div><a href="#diagram" style="padding-left: 64px">Структура програми (HIPO діаграма)</a></div>
+			<div><a href="#code" style="padding-left: 64px">Код програми</a></div>
+			<div><a href="#result" style="padding-left: 64px">Результат роботи програми</a></div>
+			<div><a href="#result-check" style="padding-left: 64px">Аналіз достовірності результатів</a></div>
+			<div><a href="#summary" style="padding-left: 64px">Висновки</a></div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="goal"></a>
+		<b>Мета роботи:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		Розв’язати нелінійні рівняння та здійснити чисельне інтегрування функцій наближеними методами, використовуючи мови функціонального програмування та lambda, let та set! форми.
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="task"></a>
+			<b>Постановка завдання:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			1.	Написати процедури, що знаходять корені нелінійних рівнянь, використовуючи форми lambda, let, set! 
+
+			</font>
+			</div>
+			<div class="title_text2">
+			<font color="black">
+			2.	Написати процедури, що обчислюють інтеграл функції за формулами прямокутників, трапецій, Сімпсона (парабол)
+
+			</font>
+			</div>
+		<img src="task3.jpg">
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="language"></a>
+			<b>Середовище Dr.Racket:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			Dr.Racket підтримує ряд діалектів та стандартів, в тому числі діалект функціональної мови програмування Scheme, яка якраз вивчалася та використовувалася в ході виконання даної роботи.
+			</font>
+		</div>
+	</div>
+		
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="diagram"></a>
+		<b>Структура програми (HIPO діаграма):</b>
+		</font>
+		</div>
+		
+		<img src="diagram3.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="code"></a>
+		<b>Код програми:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+			<div class="block3">
+				<div class="script_block">
+					<font color="black">
+						<div style="padding-left: 32px; padding-top: 16px">#lang racket</div>
+						<div style="padding-left: 32px">; функція f(x) для першої задачі</div>
+						<div style="padding-left: 32px">(define (f x)</div>
+						<div style="padding-left: 32px">  ; x^2 - e^(-x)</div>
+						<div style="padding-left: 32px">  (- (* x x) (exp (- x)))</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція для введення значень</div>
+						<div style="padding-left: 32px">(define (enter-value)      </div> 
+						<div style="padding-left: 32px">  (string->number (read-line))</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція для методу перебору</div>
+						<div style="padding-left: 32px">(define (selec a b i n eps)</div>
+						<div style="padding-left: 32px">  (define x (+ a (* i (/ (- b a) (+ n 1)))))</div>
+						<div style="padding-left: 32px">  (if (> i n)</div>
+						<div style="padding-left: 32px">      (display "Не вдалось знайти рішення")</div>
+						<div style="padding-left: 32px">      (if (= (* eps (round (/ (f x) eps))) 0)</div>
+						<div style="padding-left: 32px">          (* x 1.0)</div>
+						<div style="padding-left: 32px">          (selec a b (+ i 1) n eps)</div>
+						<div style="padding-left: 32px">          )</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція для методу хорд</div>
+						<div style="padding-left: 32px">(define (chord x0 x1 eps)</div>
+						<div style="padding-left: 32px">  (define x (- x1 (* (f x1) (/ (- x1 x0) (- (f x1) (f x0))))))</div>
+						<div style="padding-left: 32px">  (if (= (* eps (round (/ (f x) eps))) 0)</div>
+						<div style="padding-left: 32px">      x</div>
+						<div style="padding-left: 32px">      (begin</div>
+						<div style="padding-left: 32px">        (set! x0 x1)</div>
+						<div style="padding-left: 32px">        (set! x1 x)</div>
+						<div style="padding-left: 32px">        (chord x0 x1 eps)</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція для виклику рішення задачі 1</div>
+						<div style="padding-left: 32px">(define (task1 a b n eps) </div>
+						<div style="padding-left: 32px">  (display "Рішення методом перебору: ")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display (selec a b 0 n eps))</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Рішення методом хорд: ")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display (chord a b eps))</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція f(x) для другої задачі</div>
+						<div style="padding-left: 32px">(define (y x) </div>
+						<div style="padding-left: 32px">  (/ 1 (+ 1 (* x x)))</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція розрахунку значення хі</div>
+						<div style="padding-left: 32px">(define (xi a b n i) </div>
+						<div style="padding-left: 32px">  (+ a (* i (/ (- b a) n)))</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція для формули прямокутників</div>
+						<div style="padding-left: 32px">(define (rectangle a b n i) </div>
+						<div style="padding-left: 32px">  (define x1 (xi a b n i))</div>
+						<div style="padding-left: 32px">  (define x2 (xi a b n (- i 1)))</div>
+						<div style="padding-left: 32px">  (if (> i 1)</div>
+						<div style="padding-left: 32px">      (+ (* (/ (- b a) n) (y (/ (+ x1 x2) 2))) (rectangle a b n (- i 1)))</div>
+						<div style="padding-left: 32px">      (* (/ (- b a) n) (y (/ (+ x1 x2) 2)))</div>
+						<div style="padding-left: 32px">      ) </div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція для формули трапецій</div>
+						<div style="padding-left: 32px">(define (trapezoid a b n i) </div>
+						<div style="padding-left: 32px">  (define x (xi a b n i))</div>
+						<div style="padding-left: 32px">  (if (> i 0)</div>
+						<div style="padding-left: 32px">      (+ (* (/ (- b a) n) (y x)) (trapezoid a b n (- i 1)))</div>
+						<div style="padding-left: 32px">      (+ (* (/ (- b a) (* 1 n)) (/ (y x) 2)) (* (/ (- b a) (* 1 n)) (/ (y (xi a b n n)) 2)))</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція для виклику рішення задачі 2</div>
+						<div style="padding-left: 32px">(define (task2 n)</div>
+						<div style="padding-left: 32px">  (display "Рішення за формулою прямокутників:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display (* 1.0 (rectangle 0 1 n n)))</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Рішення за формулою трапецій:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display (* 1.0 (trapezoid 0 1 n (- n 1))))</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Різниця:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display (- (* 1.0 (rectangle 0 1 n n)) (* 1.0 (trapezoid 0 1 n (- n 1)))))</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Рішення з онлайн-калькулятора:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display 0.7853981633974483)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Найбільш точним є рішення за формулою ")</div>
+						<div style="padding-left: 32px">  (if (< (abs (- 0.7853981633974483 (rectangle 0 1 n n))) (abs (- 0.7853981633974483 (trapezoid 0 1 n (- n 1)))))</div>
+						<div style="padding-left: 32px">      (display "прямокутників")</div>
+						<div style="padding-left: 32px">      (display "трапецій")</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px; padding-bottom: 16px">  )</div>
+
+
+					
+					</font>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result"></a>
+		<b>Результат роботи програми:</b>
+		</font>
+		</div>
+		
+		<img src="console3.jpg">
+		
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result-check"></a>
+		<b>Аналіз достовірності результатів:</b>
+		</font>
+		</div>
+		
+		<img src="solution3.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		Вводимо рівняння з першого завдання в онлайн-калькулятор. Бачимо, що результати майже співпадають.
+		</font>
+		</div>
+		
+		<div class="title_text2">
+		<font color="black">
+		У другому завданні результати, знайдені за формулами прямокутників та трапецій порівнюються з результатом з онлайн-калькулятора. Бачимо, що результати майже співпадають, отже програма працює правильно.
+		</font>
+		</div>
+		
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="summary"></a>
+		<b>Висновки:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		У цій роботі було вирішено дві задачі: у першій було знайдено розв'язок заданого рівняння двома методами: методом хорд та методом перебору. Виходячи з результатів, більш точним виявився метод хорд. У другій задачі було обчислено інтеграл на заданому проміжку за формулами прямокутників і трапецій. Більш точним виявився перший метод. Також у першій задачі біла використана функція set! для присвоєння нових значень існуючих змінних.
+		</font>
+		</div>
+	</div>
+</body>
+
+</html>
