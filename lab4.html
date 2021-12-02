@@ -1,0 +1,381 @@
+<html>
+<head>	
+	<title>Лабораторна робота №4</title>
+	<style type="text/css">
+	h1 {
+		font-family: Century Gothic;
+		font-weight: bold;
+		font-style: normal;
+		font-size: 72px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h4 {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+    }
+	.head_block { 
+		width: 100%;
+		padding: 0px;
+		padding-bottom: 0px; 
+		outline: solid 10px #2f2f2f; 
+		border: solid 1px #2f2f2f; 
+		float: center;
+		background-color: #2f2f2f;
+    }
+	.block2 { 
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 10px;
+    }
+	.block3 {
+		width: 100%;
+		padding-left: 64px;
+	}
+	.script_block {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 3px;
+	}
+	.title_text {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		text-align: center;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+	.title_text2 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<div class="head_block">
+		<div class="title_text">МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</div>
+		<div class="title_text">КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ імені Тараса Шевченка</div>
+		<div class="title_text">ФАКУЛЬТЕТ ІНФОРМАЦІЙНИХ ТЕХНОЛОГІЙ</div>
+		<div class="title_text"><b>Кафедра програмних систем і технологій</b></div>
+		<div class="title_text">Дисципліна:</div>
+		<div class="title_text"><b>«Функціональне програмування»<b></div>
+		<h1>Звіт з лабораторної роботи №4</h1>
+		<div class="title_text">на тему: </div>
+		<div class="title_text"><b>Програмування списків мовами функціонального програмування</b></div>
+		<div class="title_text2"><b>Виконав:</b> Бурлай Дмитро Ігорович</div>
+		<div class="title_text2"><b>Група:</b> ІПЗ-42</div>
+		<div class="title_text2"><b>Форма навчання:</b> денна</div>
+		<div class="title_text2"><b>Перевірила:</b> Ніколаєнко Анастасія Юріївна</div>
+		<div class="title_text">2021</div>
+	</div>	
+	
+	<hr width=100% size=1 color=grey>
+	<hr width=100% size=1 color=grey>
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<b>Зміст:</b>
+			</font>
+			<div><a href="#goal" style="padding-left: 64px">Мета роботи</a></div>
+			<div><a href="#task" style="padding-left: 64px">Постановка завдання</a></div>
+			<div><a href="#language" style="padding-left: 64px">Середовище Dr.Racket</a></div>
+			<div><a href="#diagram" style="padding-left: 64px">Структура програми (HIPO діаграма)</a></div>
+			<div><a href="#code" style="padding-left: 64px">Код програми</a></div>
+			<div><a href="#result" style="padding-left: 64px">Результат роботи програми</a></div>
+			<div><a href="#result-check" style="padding-left: 64px">Аналіз достовірності результатів</a></div>
+			<div><a href="#summary" style="padding-left: 64px">Висновки</a></div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="goal"></a>
+		<b>Мета роботи:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		Опанувати теоретичні основи використання списків функціональними мовами та розробити програми обробки списків.
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="task"></a>
+			<b>Постановка завдання:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			1.	Написати процедури, що створюють список, модифікують його, здійснюють пошук та упорядкування значень. 
+
+			</font>
+			</div>
+			<div class="title_text2">
+			<font color="black">
+			2.	Написати процедури, що моделюють бізнес-процеси в компаніях та за допомогою різних сервісів. Бізнес-процеси подати у вигляді списків.
+
+			</font>
+			</div>
+		<img src="task4.jpg">
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="language"></a>
+			<b>Середовище Dr.Racket:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			Dr.Racket підтримує ряд діалектів та стандартів, в тому числі діалект функціональної мови програмування Scheme, яка якраз вивчалася та використовувалася в ході виконання даної роботи.
+			</font>
+		</div>
+	</div>
+		
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="diagram"></a>
+		<b>Структура програми (HIPO діаграма):</b>
+		</font>
+		</div>
+		
+		<img src="diagram4.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="code"></a>
+		<b>Код програми:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+			<div class="block3">
+				<div class="script_block">
+					<font color="black">
+						<div style="padding-left: 32px; padding-top: 16px">#lang racket</div>
+						<div style="padding-left: 32px">; функція для вводу значення</div>
+						<div style="padding-left: 32px">(define (enter-value) </div>      
+						<div style="padding-left: 32px">  (string->number (read-line))</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; функція додавання К значень у список</div>
+						<div style="padding-left: 32px">(define (add-to-list k lst)</div>
+						<div style="padding-left: 32px">  (define value (enter-value))</div>
+						<div style="padding-left: 32px">  (define l_value (list value))</div>
+						<div style="padding-left: 32px">  (set! lst (append lst l_value))</div>
+						<div style="padding-left: 32px">  (if (> k 1)</div>
+						<div style="padding-left: 32px">      (add-to-list (- k 1) lst)</div>
+						<div style="padding-left: 32px">      lst</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px">  )</div>
+						<div style="padding-left: 32px">; завдання 1</div>
+						<div style="padding-left: 32px">(define (task1)</div>
+						<div style="padding-left: 32px">  ; пункт 0</div>
+						<div style="padding-left: 32px">  (display "К-сть елементів списку = ")</div>
+						<div style="padding-left: 32px">  (define n (enter-value))</div>
+						<div style="padding-left: 32px">  ;генерація списку</div>
+						<div style="padding-left: 32px">  (define list1 (build-list n (lambda (x) (+ (* (exact-round (* (random) 100)) 2) 1))))</div>
+						<div style="padding-left: 32px">  ;виведення списку</div>
+						<div style="padding-left: 32px">  (display "Список = ")</div>
+						<div style="padding-left: 32px">  (display list1)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  ; пункт 1</div>
+						<div style="padding-left: 32px">  (display "К-сть елементів списку, які треба додати = ")</div>
+						<div style="padding-left: 32px">  (define k (enter-value))</div>
+						<div style="padding-left: 32px">  (display "Введіть ")</div>
+						<div style="padding-left: 32px">  (display k)</div>
+						<div style="padding-left: 32px">  (display " значень, які треба додати: ")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  ; створення списку з доданими значеннями</div>
+						<div style="padding-left: 32px">  (define list1_renewed (add-to-list k list1))</div>
+						<div style="padding-left: 32px">  (set! list1 list1_renewed)</div>
+						<div style="padding-left: 32px">  (display "Оновлений список = ")</div>
+						<div style="padding-left: 32px">  (display list1)</div>
+						  
+						<div style="padding-left: 32px">  ; пункт 2</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Введіть позицію в списку: ")</div>
+						<div style="padding-left: 32px">  (define m (enter-value))</div>
+						<div style="padding-left: 32px">  ; відокремлення 2-х списків від основного</div>
+						<div style="padding-left: 32px">  ; 1-ий підсписок - значення до індекса m</div>
+						<div style="padding-left: 32px">  ; 2-ий підсписок - інвертовані значення після індекса m</div>
+						<div style="padding-left: 32px">  (define sublist1 (reverse (list-tail (reverse list1) (- (length list1) m))))</div>
+						<div style="padding-left: 32px">  (define sublist2 (reverse (list-tail list1 m)))</div>
+						<div style="padding-left: 32px">  ; об'єднання підсписків</div>
+						<div style="padding-left: 32px">  (define list2 (append sublist1 sublist2))</div>
+						<div style="padding-left: 32px">  (display "Список з інвертованими значеннями після індексу ")</div>
+						<div style="padding-left: 32px">  (display m)</div>
+						<div style="padding-left: 32px">  (display ": ")</div>
+						<div style="padding-left: 32px">  (display list2)</div>
+						  
+						<div style="padding-left: 32px">  ; пункт 3</div>
+						<div style="padding-left: 32px">  ; генерація списку квадратів значень попереднього списку</div>
+						<div style="padding-left: 32px">  (define list3 (build-list (length list1) (lambda (x) (* (list-ref list1 x) (list-ref list1 x)))))</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Список з квадратів значень 1-го списку = ")</div>
+						<div style="padding-left: 32px">  (display list3)</div>
+						<div style="padding-left: 32px">)</div>
+
+						<div style="padding-left: 32px">; функція екзаменації студентів</div>
+						<div style="padding-left: 32px">(define (exam st ch n0 n p f)</div>
+						<div style="padding-left: 32px">  (if (= (car (list-ref ch n0)) 0)</div>
+						<div style="padding-left: 32px">      (begin</div>
+						<div style="padding-left: 32px">        (newline)</div>
+						<div style="padding-left: 32px">        (display "student_")</div>
+						<div style="padding-left: 32px">        (display (car (list-ref st n0)))</div>
+						<div style="padding-left: 32px">        (display " йде на перездачу")</div>
+						<div style="padding-left: 32px">        (set! f (+ f 1))</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">      (begin</div>
+						<div style="padding-left: 32px">        (newline)</div>
+						<div style="padding-left: 32px">        (display "student_")</div>
+						<div style="padding-left: 32px">        (display (car (list-ref st n0)))</div>
+						<div style="padding-left: 32px">        (display " успішно здав іспит")</div>
+						<div style="padding-left: 32px">        (set! p (+ p 1))</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px">  (if (= (cdr (list-ref ch n0)) 0)</div>
+						<div style="padding-left: 32px">      (begin</div>
+						<div style="padding-left: 32px">        (newline)</div>
+						<div style="padding-left: 32px">        (display "student_")</div>
+						<div style="padding-left: 32px">        (display (cdr (list-ref st n0)))</div>
+						<div style="padding-left: 32px">        (display " йде на перездачу")</div>
+						<div style="padding-left: 32px">        (set! f (+ f 1))</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">      (begin</div>
+						<div style="padding-left: 32px">        (newline)</div>
+						<div style="padding-left: 32px">        (display "student_")</div>
+						<div style="padding-left: 32px">        (display (cdr (list-ref st n0)))</div>
+						<div style="padding-left: 32px">        (display " успішно здав іспит")</div>
+						<div style="padding-left: 32px">        (set! p (+ p 1))</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px">  (if (< n0 (- n 1))</div>
+						<div style="padding-left: 32px">      (exam st ch (+ n0 1) n p f)</div>
+						<div style="padding-left: 32px">      (begin</div>
+						<div style="padding-left: 32px">        (newline)</div>
+						<div style="padding-left: 32px">        (display "Успішних здач: ")</div>
+						<div style="padding-left: 32px">        (display p)</div>
+						<div style="padding-left: 32px">        (newline)</div>
+						<div style="padding-left: 32px">        (display "Невдалих здач:")</div>
+						<div style="padding-left: 32px">        (display f)</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">      )</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; завдання 2</div>
+						<div style="padding-left: 32px">(define (task2)</div>
+						<div style="padding-left: 32px">  (display "Загальна к-сть пар студентів = ")</div>
+						<div style="padding-left: 32px">  (define n (enter-value))</div>
+						<div style="padding-left: 32px">  (display "Шанс здачі іспиту студентом (%) = ")</div>
+						<div style="padding-left: 32px">  (define chance (enter-value))</div>
+						<div style="padding-left: 32px">  (display "К-сть хвилин на екзаменецію однієї пари: = ")</div>
+						<div style="padding-left: 32px">  (define m (enter-value))</div>
+
+						<div style="padding-left: 32px">  ; список номерів студентів</div>
+						<div style="padding-left: 32px">  (define numbers (build-list n (lambda (x) (* x 2))))</div>
+
+						<div style="padding-left: 32px">  ; список пар студентів</div>
+						<div style="padding-left: 32px">  (display "Пари студентів = ")</div>
+						<div style="padding-left: 32px">  (define students (build-list n (lambda (x) (cons (list-ref numbers x) (+ (list-ref numbers x) 1)))))</div>
+						<div style="padding-left: 32px">  (display students)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  ; список результатів іспиту для студентів (1=здав, 0=не здав)</div>
+						<div style="padding-left: 32px">  (define students-pass (build-list n (lambda (x) (cons (if (< (random) (/ chance 100)) 1 0) (if (< (random) (/ chance 100)) 1 0)))))</div>
+
+						<div style="padding-left: 32px">  ; виведення результатів іспиту</div>
+						<div style="padding-left: 32px">  (exam students students-pass 0 n 0 0)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Іспит тривав ")</div>
+						<div style="padding-left: 32px">  (display (* m n))</div>
+						<div style="padding-left: 32px">  (display " хвилин")</div>
+  
+						<div style="padding-left: 32px; padding-bottom: 16px">)</div>
+					
+					</font>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result"></a>
+		<b>Результат роботи програми:</b>
+		</font>
+		</div>
+		
+		<img src="console4.jpg">
+		
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result-check"></a>
+		<b>Аналіз достовірності результатів:</b>
+		</font>
+		</div>
+		
+		<img src="solution4.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		У першому завданні вводимо кількість елементів - 6. Виводиться як раз список із 6 згенерованих значень. Потім вводимо кількість елементів, які треба додати - 3. Як раз виходить така кількість. Виводиться новий список з попередніми елементами, та 3-ма введеними. Далі вводимо позицію, з якої потрібно інвертувати список - 3. Враховуємо, що індексація починається з 0, і бачимо, що все працює правильно. Тепер перевіряємо правильність розрахунку квадратів значень зі списку (див. рисунок зверху). Переконуємося, що все співпадає, а отже програма працює правильно.
+		</font>
+		</div>
+		
+		<div class="title_text2">
+		<font color="black">
+		У другому завданні вводимо такі дані: кількість пар студентів, шанс здачі іспиту студентом та тривалість екзаменації однієї пари студентів. На виході маємо зазначену кількість пар студентів (5) з індексами студентів (0-9). Успішно здали іспит 7 із 10 студентів, що відповідає зазаначеному проценту здачі (70%). Також виводиться список усіх студентів зі станом здачі іспиту, кількість вдалих та невдалих здач, і тривалість іспиту (6хв * 5 пар = 30 хв). Отже програма працює правильно.
+		</font>
+		</div>
+		
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="summary"></a>
+		<b>Висновки:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		У цій роботі було вирішено дві задачі: робота зі списками у середовищі функціональної мови програмування Racket та моделювання процесу здачі іспиту студентами. Було отримано навички роботи зі списками та перевірено роботу програм на вірність.
+		</font>
+		</div>
+	</div>
+</body>
+
+</html>
