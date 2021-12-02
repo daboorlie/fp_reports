@@ -1,0 +1,351 @@
+<html>
+<head>	
+	<title>Лабораторна робота №5</title>
+	<style type="text/css">
+	h1 {
+		font-family: Century Gothic;
+		font-weight: bold;
+		font-style: normal;
+		font-size: 72px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h4 {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+    }
+	.head_block { 
+		width: 100%;
+		padding: 0px;
+		padding-bottom: 0px; 
+		outline: solid 10px #2f2f2f; 
+		border: solid 1px #2f2f2f; 
+		float: center;
+		background-color: #2f2f2f;
+    }
+	.block2 { 
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 10px;
+    }
+	.block3 {
+		width: 100%;
+		padding-left: 64px;
+	}
+	.script_block {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 3px;
+	}
+	.title_text {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		text-align: center;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+	.title_text2 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<div class="head_block">
+		<div class="title_text">МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</div>
+		<div class="title_text">КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ імені Тараса Шевченка</div>
+		<div class="title_text">ФАКУЛЬТЕТ ІНФОРМАЦІЙНИХ ТЕХНОЛОГІЙ</div>
+		<div class="title_text"><b>Кафедра програмних систем і технологій</b></div>
+		<div class="title_text">Дисципліна:</div>
+		<div class="title_text"><b>«Функціональне програмування»<b></div>
+		<h1>Звіт з лабораторної роботи №5</h1>
+		<div class="title_text">на тему: </div>
+		<div class="title_text"><b>Обробка раціональних та комплексних чисел мовами функціонального програмування</b></div>
+		<div class="title_text2"><b>Виконав:</b> Бурлай Дмитро Ігорович</div>
+		<div class="title_text2"><b>Група:</b> ІПЗ-42</div>
+		<div class="title_text2"><b>Форма навчання:</b> денна</div>
+		<div class="title_text2"><b>Перевірила:</b> Ніколаєнко Анастасія Юріївна</div>
+		<div class="title_text">2021</div>
+	</div>	
+	
+	<hr width=100% size=1 color=grey>
+	<hr width=100% size=1 color=grey>
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<b>Зміст:</b>
+			</font>
+			<div><a href="#goal" style="padding-left: 64px">Мета роботи</a></div>
+			<div><a href="#task" style="padding-left: 64px">Постановка завдання</a></div>
+			<div><a href="#language" style="padding-left: 64px">Середовище Dr.Racket</a></div>
+			<div><a href="#diagram" style="padding-left: 64px">Структура програми (HIPO діаграма)</a></div>
+			<div><a href="#code" style="padding-left: 64px">Код програми</a></div>
+			<div><a href="#result" style="padding-left: 64px">Результат роботи програми</a></div>
+			<div><a href="#result-check" style="padding-left: 64px">Аналіз достовірності результатів</a></div>
+			<div><a href="#summary" style="padding-left: 64px">Висновки</a></div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="goal"></a>
+		<b>Мета роботи:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		Опанувати технологію абстракції даних в мовах функціонального програмування. Реалізувати програму обробки раціональних та комплексних чисел мовами функціонального програмування, представивши ці числа конструкціями типу «пара»
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="task"></a>
+			<b>Постановка завдання:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			1.	Написати процедури, що обробляють раціональні числа (працюють з дробами), які подати у вигляді чисельника і знаменника  . 
+
+			</font>
+			</div>
+			<div class="title_text2">
+			<font color="black">
+			2.	Написати процедури, що обробляють комплексні числа, які слід подати в декартовому (алгебраїчному) (z = a + i×b) та/або полярному (z=√(a^2+b^2)(cosФ + i×sin(Ф))) зображенні.
+
+
+			</font>
+			</div>
+		<img src="task5.jpg">
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="language"></a>
+			<b>Середовище Dr.Racket:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			Dr.Racket підтримує ряд діалектів та стандартів, в тому числі діалект функціональної мови програмування Scheme, яка якраз вивчалася та використовувалася в ході виконання даної роботи.
+			</font>
+		</div>
+	</div>
+		
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="diagram"></a>
+		<b>Структура програми (HIPO діаграма):</b>
+		</font>
+		</div>
+		
+		<img src="diagram5.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="code"></a>
+		<b>Код програми:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+			<div class="block3">
+				<div class="script_block">
+					<font color="black">
+						<div style="padding-left: 32px; padding-top: 16px">#lang racket</div>
+						<div style="padding-left: 32px">; завдання 1</div>
+						<div style="padding-left: 32px">(define (task1)</div>
+						<div style="padding-left: 32px">  (define (numer x) (car x)) ; чисельник</div>
+						<div style="padding-left: 32px">  (define (denom x) (cdr x)) ; знаменник</div>
+						<div style="padding-left: 32px">  (define (make-rat n d) (cons n d)) ; конструктор дробу</div>
+
+						<div style="padding-left: 32px">  ; функція виведення дробу</div>
+						<div style="padding-left: 32px">  (define (print-rat x)</div>
+						<div style="padding-left: 32px">    (display (numer x))</div>
+						<div style="padding-left: 32px">    (display "/")</div>
+						<div style="padding-left: 32px">    (display (denom x))</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  ; функція виведення рівняння</div>
+						<div style="padding-left: 32px">  (define (print-equation)</div>
+						<div style="padding-left: 32px">    (print-rat '(x . 1))</div>
+						<div style="padding-left: 32px">    (display " + ")</div>
+						<div style="padding-left: 32px">    (print-rat '(x . 1))</div>
+						<div style="padding-left: 32px">    (display " + ")</div>
+						<div style="padding-left: 32px">    (print-rat '(x . 2))</div>
+						<div style="padding-left: 32px">    (display " + ")</div>
+						<div style="padding-left: 32px">    (print-rat '(x . 4))</div>
+						<div style="padding-left: 32px">    (display " + 1 = 100")</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  ; функція додавання дробів</div>
+						<div style="padding-left: 32px">  (define (add-rat x y)</div>
+						<div style="padding-left: 32px">    (make-rat (+ (* (numer x) (denom y))</div>
+						<div style="padding-left: 32px">                 (* (numer y) (denom x)</div>
+						<div style="padding-left: 32px">                    )</div>
+						<div style="padding-left: 32px">                 )</div>
+						<div style="padding-left: 32px">              (* (denom x) (denom y)</div>
+						<div style="padding-left: 32px">                 )</div>
+						<div style="padding-left: 32px">              )</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  ; функція обчислення рішення рівняння</div>
+						<div style="padding-left: 32px">  (define (solve-equation)</div>
+						<div style="padding-left: 32px">    (/ 99 (/ (car fraction-sum) (cdr fraction-sum)))</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  ; ініціалізація дробів</div>
+						<div style="padding-left: 32px">  (define fraction1 (make-rat 1 1) )</div>
+						<div style="padding-left: 32px">  (define fraction2 (make-rat 1 2) )</div>
+						<div style="padding-left: 32px">  (define fraction3 (make-rat 1 4) )</div>
+
+						<div style="padding-left: 32px">  ; сума дробів</div>
+						<div style="padding-left: 32px">  (define fraction-sum (add-rat (add-rat (add-rat fraction1 fraction1) fraction2) fraction3))</div>
+
+						<div style="padding-left: 32px">  ; виведення рівняння</div>
+						<div style="padding-left: 32px">  (print-equation)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  ; виведення рівняння у скороченій формі</div>
+						<div style="padding-left: 32px">  (print-rat fraction-sum)</div>
+						<div style="padding-left: 32px">  (display " * x + 1 = 100")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  ; виведення рішення рівняння</div>
+						<div style="padding-left: 32px">  (display "x = ")</div>
+						<div style="padding-left: 32px">  (display (solve-equation))</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">; завдання 2</div>
+						<div style="padding-left: 32px">(define (task2)</div>
+						<div style="padding-left: 32px">  ; функція виведення одного комплексного числа</div>
+						<div style="padding-left: 32px">  (define (print-complex-number pair)</div>
+						<div style="padding-left: 32px">    (display (car pair)) ; дійсна частина</div>
+						<div style="padding-left: 32px">    (display " + ")</div>
+						<div style="padding-left: 32px">    (display (cdr pair)) ; уявна частина</div>
+						<div style="padding-left: 32px">    (display "*i")</div>
+						<div style="padding-left: 32px">    (newline)</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  ; функція виведення всіх комплексних чисел</div>
+						<div style="padding-left: 32px">  (define (print-all-complex list i n)</div>
+						<div style="padding-left: 32px">    (print-complex-number (list-ref list i))</div>
+						<div style="padding-left: 32px">    (if (= i (- n 1))</div>
+						<div style="padding-left: 32px">        (display "")</div>
+						<div style="padding-left: 32px">        (print-all-complex list (+ i 1) n)</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  ; функція розрахунку суми комплексних елементів</div>
+						<div style="padding-left: 32px">  (define (complex-sum list sum i n)</div>
+						<div style="padding-left: 32px">    (set! sum (+ sum (cdr (list-ref list i))))</div>
+						<div style="padding-left: 32px">    (if (= i (- n 1))</div>
+						<div style="padding-left: 32px">        sum</div>
+						<div style="padding-left: 32px">        (complex-sum list sum (+ i 1) n)</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  (define n 10) ; кількість чисел у списку</div>
+						  
+						<div style="padding-left: 32px">  ; генерація списку чисел</div>
+						<div style="padding-left: 32px">  (define complex-numbers (build-list n (lambda (x) (cons (* 10 (random)) (* 10 (random))))))</div>
+						  
+						<div style="padding-left: 32px">  ; виведення списку чисел</div>
+						<div style="padding-left: 32px">  (display "Список комплексних чисел:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (print-all-complex complex-numbers 0 n)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  ; виведення суми комплексних елементів</div>
+						<div style="padding-left: 32px">  (display "Сума комплексних елементів:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display (complex-sum complex-numbers 0 0 n))</div>
+						<div style="padding-left: 32px">  (display "*i")</div>
+						<div style="padding-left: 32px; padding-bottom: 16px">)</div>
+					
+					</font>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result"></a>
+		<b>Результат роботи програми:</b>
+		</font>
+		</div>
+		
+		<img src="console5.jpg">
+		
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result-check"></a>
+		<b>Аналіз достовірності результатів:</b>
+		</font>
+		</div>
+		
+		<div class="title_text2">
+		<font color="black">
+		У першій задачі треба створити рівняння з формулювання: «Якби нас було стільки, скільки тепер, та ще стільки, та півстільки, та чверть стільки, та ще ти, гусак, з нами, тоді б нас було сто гусей». Нехай х - поточна кількість гусей у зграї, тоді маємо рівняння, яке буде збігатися з формулюванням: х + х + х/2 + х/4 + 1 = 100. Зведемо дроби до спільного знаменника та перенесемо 1 в ліву частину: 4х/4 + 4х/4 + 2х/4 + х/4 = 99; 11х/4 = 99. В програмі маємо дріб 22х/8, що по суті те саме. Розв'яжемо рівняння: 11х/4 = 99; х/4 = 9; х = 36. Бачимо що програма виводить той самий результат, робимо висновок, що програма працює правильно.
+		</font>
+		</div>
+		
+		<img src="solution5.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		У другому завданні генерується список з деякою кількістю елементів (за замовчуванням 10). Список складається з пар: кожна пара містить дійну частину та уявну частину, згенеровані випадковим чином. У вікно консолі виводяться всі комплексні числа в арифметичному вигляді (a + b*i). Потім виводиться сума комплексних елементів (перевірка на достовірність на рисунку зверху). Бачимо, що програма працює правильно.
+		</font>
+		</div>
+		
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="summary"></a>
+		<b>Висновки:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		У цій роботі було вирішено дві задачі: знаходження розв'язку рівняння через дроби та робота з комплексними числами, використовуючи пари та списки. Виходячи з аналізу результатів, робимо висновок, що програмі вдалося знайти правильні розв'язки.
+		</font>
+		</div>
+	</div>
+</body>
+
+</html>
