@@ -1,0 +1,330 @@
+<html>
+<head>	
+	<title>Лабораторна робота №6</title>
+	<style type="text/css">
+	h1 {
+		font-family: Century Gothic;
+		font-weight: bold;
+		font-style: normal;
+		font-size: 72px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h4 {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+    }
+	.head_block { 
+		width: 100%;
+		padding: 0px;
+		padding-bottom: 0px; 
+		outline: solid 10px #2f2f2f; 
+		border: solid 1px #2f2f2f; 
+		float: center;
+		background-color: #2f2f2f;
+    }
+	.block2 { 
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 10px;
+    }
+	.block3 {
+		width: 100%;
+		padding-left: 64px;
+	}
+	.script_block {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 3px;
+	}
+	.title_text {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		text-align: center;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+	.title_text2 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<div class="head_block">
+		<div class="title_text">МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</div>
+		<div class="title_text">КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ імені Тараса Шевченка</div>
+		<div class="title_text">ФАКУЛЬТЕТ ІНФОРМАЦІЙНИХ ТЕХНОЛОГІЙ</div>
+		<div class="title_text"><b>Кафедра програмних систем і технологій</b></div>
+		<div class="title_text">Дисципліна:</div>
+		<div class="title_text"><b>«Функціональне програмування»<b></div>
+		<h1>Звіт з лабораторної роботи №6</h1>
+		<div class="title_text">на тему: </div>
+		<div class="title_text"><b>Обробка структур типу векторів і матриць, стеків та черг мовами функціонального програмування</b></div>
+		<div class="title_text2"><b>Виконав:</b> Бурлай Дмитро Ігорович</div>
+		<div class="title_text2"><b>Група:</b> ІПЗ-42</div>
+		<div class="title_text2"><b>Форма навчання:</b> денна</div>
+		<div class="title_text2"><b>Перевірила:</b> Ніколаєнко Анастасія Юріївна</div>
+		<div class="title_text">2021</div>
+	</div>	
+	
+	<hr width=100% size=1 color=grey>
+	<hr width=100% size=1 color=grey>
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<b>Зміст:</b>
+			</font>
+			<div><a href="#goal" style="padding-left: 64px">Мета роботи</a></div>
+			<div><a href="#task" style="padding-left: 64px">Постановка завдання</a></div>
+			<div><a href="#language" style="padding-left: 64px">Середовище Dr.Racket</a></div>
+			<div><a href="#diagram" style="padding-left: 64px">Структура програми (HIPO діаграма)</a></div>
+			<div><a href="#code" style="padding-left: 64px">Код програми</a></div>
+			<div><a href="#result" style="padding-left: 64px">Результат роботи програми</a></div>
+			<div><a href="#result-check" style="padding-left: 64px">Аналіз достовірності результатів</a></div>
+			<div><a href="#summary" style="padding-left: 64px">Висновки</a></div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="goal"></a>
+		<b>Мета роботи:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		Опанувати теоретичні основи обробки структур типу векторів і матриць, стеків та черг мовами функціонального програмування та розробити програми їх реалізації
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="task"></a>
+			<b>Постановка завдання:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			1.	Написати процедури, що обробляють вектори відповідно до правил векторної алгебри 
+
+			</font>
+			</div>
+			<div class="title_text2">
+			<font color="black">
+			2.	Написати процедури, що обробляють черги відповідно до правил FIFO (перший прийшов — перший пішов) та стеків за правилами LIFO (останній прийшов - перший пішов)
+
+
+			</font>
+			</div>
+		<img src="task6.jpg">
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="language"></a>
+			<b>Середовище Dr.Racket:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			Dr.Racket підтримує ряд діалектів та стандартів, в тому числі діалект функціональної мови програмування Scheme, яка якраз вивчалася та використовувалася в ході виконання даної роботи.
+			</font>
+		</div>
+	</div>
+		
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="diagram"></a>
+		<b>Структура програми (HIPO діаграма):</b>
+		</font>
+		</div>
+		
+		<img src="diagram6.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="code"></a>
+		<b>Код програми:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+			<div class="block3">
+				<div class="script_block">
+					<font color="black">
+						<div style="padding-left: 32px; padding-top: 16px">#lang racket</div>
+						<div style="padding-left: 32px">(define (task1)</div>
+						<div style="padding-left: 32px">  ; завдання 1</div>
+						<div style="padding-left: 32px">  ; створюємо вектори</div>
+						<div style="padding-left: 32px">  (define v1 (vector 6 2 1 2 6 2))</div>
+						<div style="padding-left: 32px">  (define v2 (vector 3 7 3 6 6 1))</div>
+
+						<div style="padding-left: 32px">  ; виводимо вектори</div>
+						<div style="padding-left: 32px">  (display "Вектор 1:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display v1)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display "Вектор 2:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  (display v2)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  ; вектор значень, які співпадають</div>
+						<div style="padding-left: 32px">  (define v_sim (build-vector (vector-length v1) (lambda (x) (if (= (vector-ref v1 x) (vector-ref v2 x)) (vector-ref v1 x) null))))</div>
+						<div style="padding-left: 32px">  (display "Найменший серед тих елементів першого вектору, які співпадають із значеннями елементів другого вектору:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  ; найменше значення з вектора</div>
+						<div style="padding-left: 32px">  (define value (vector-ref (vector-sort (vector-filter-not null? v_sim) <) 0))</div>
+						<div style="padding-left: 32px">  (display value)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  (display "Індекс цього елементу:")</div>
+						<div style="padding-left: 32px">  (newline)</div>
+						<div style="padding-left: 32px">  ; пошук індексу цього значення</div>
+						<div style="padding-left: 32px">  ; створюємо 2 списки зі значеннями індексів того значення, яке ми знайшли раніше</div>
+						<div style="padding-left: 32px">  (define index1 (indexes-of (vector->list v1) value))</div>
+						<div style="padding-left: 32px">  (define index2 (indexes-of (vector->list v2) value))</div>
+						<div style="padding-left: 32px">  ; об'єднуємо списки в один</div>
+						<div style="padding-left: 32px">  (define index12 (sort (append index1 index2)< ))</div>
+						<div style="padding-left: 32px">  ; індекс цього значення однакових в обох векторах, тому в цьому списку цей індекс має повторюватись двічі</div>
+						<div style="padding-left: 32px">  ; створюємо список повторюваних значень </div>
+						<div style="padding-left: 32px">  (define repeats (build-list (length index12) (lambda (x) (length (indexes-of index12 (list-ref index12 x))))))</div>
+						<div style="padding-left: 32px">  ; беремо з цього списку максимальне значення та його індекс, цей індекс вкаже на повторюване значення в списку index12 (воно і буде шуканим індексом)</div>
+						<div style="padding-left: 32px">  (define index (list-ref index12 (index-of repeats (list-ref (sort repeats >) 0))))</div>
+						<div style="padding-left: 32px">  (display index)</div>
+						<div style="padding-left: 32px">  )</div>
+
+						<div style="padding-left: 32px">(define (task2)</div>
+						<div style="padding-left: 32px">  ; селектор до першого елемента черги</div>
+						<div style="padding-left: 32px">  (define (front q)</div>
+						<div style="padding-left: 32px">    (first q)</div>
+						<div style="padding-left: 32px">    )</div>
+						<div style="padding-left: 32px">  ; селектор до останнього елемента черги</div>
+						<div style="padding-left: 32px">  (define (rear q)</div>
+						<div style="padding-left: 32px">    (last q)</div>
+						<div style="padding-left: 32px">    )</div>
+						<div style="padding-left: 32px">  ; додавання нового елемента в чергу</div>
+						<div style="padding-left: 32px">  (define (push q val)</div>
+						<div style="padding-left: 32px">    (append q (list val))</div>
+						<div style="padding-left: 32px">    )</div>
+						<div style="padding-left: 32px">  ; вилучення елемента з черги</div>
+						<div style="padding-left: 32px">  (define (pop q)</div>
+						<div style="padding-left: 32px">    (cdr q)</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  (define (queue-loop q q1 q2)</div>
+						<div style="padding-left: 32px">    (if (char-alphabetic? (front q))</div>
+						<div style="padding-left: 32px">        (set! q1 (push q1 (front q)))</div>
+						<div style="padding-left: 32px">        (set! q2 (push q2 (front q)))</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">    (set! q (pop q))</div>
+						<div style="padding-left: 32px">    (if (= (length q) 0)</div>
+						<div style="padding-left: 32px">        (begin</div>
+						<div style="padding-left: 32px">          (display "Черга з буквами: ")</div>
+						<div style="padding-left: 32px">          (newline)</div>
+						<div style="padding-left: 32px">          (display q1)</div>
+						<div style="padding-left: 32px">          (newline)</div>
+						<div style="padding-left: 32px">         (display "Черга з іншими символами: ")</div>
+						<div style="padding-left: 32px">          (newline)</div>
+						<div style="padding-left: 32px">          (display q2)</div>
+						<div style="padding-left: 32px">          )</div>
+						<div style="padding-left: 32px">        (queue-loop q q1 q2)</div>
+						<div style="padding-left: 32px">        )</div>
+						<div style="padding-left: 32px">    )</div>
+
+						<div style="padding-left: 32px">  (define queue (list #\h #\2 #\5 #\s #\f #\S #\T #\= #\2 #\q))</div>
+						<div style="padding-left: 32px">  (define q1 (list))</div>
+						<div style="padding-left: 32px">  (define q2 (list))</div>
+
+						<div style="padding-left: 32px">  (display "Черга: ")</div>
+						<div style="padding-left: 32px">  (display queue)</div>
+						<div style="padding-left: 32px">  (newline)</div>
+
+						<div style="padding-left: 32px">  (queue-loop queue q1 q2)</div>
+						<div style="padding-left: 32px; padding-bottom: 16px">  )</div>
+
+					</font>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result"></a>
+		<b>Результат роботи програми:</b>
+		</font>
+		</div>
+		
+		<img src="console6.jpg">
+		
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result-check"></a>
+		<b>Аналіз достовірності результатів:</b>
+		</font>
+		</div>
+		
+		<div class="title_text2">
+		<font color="black">
+		У першій задачі маємо на вході два вектори, значення яких виводяться у консоль. Далі програма перевіряє поіндексно, чи співпадає значення першого вектора зі значенням другого вектора, і якщо ця умова виконується, то записуємо його в новий вектор. З нового вектора виводимо найменше значення та шукаємо його індекс в першому векторі (детально в коментарях коду програми). Бачимо, що програма працює правильно.
+		</font>
+		</div>
+		
+		<!-- <img src="solution5.jpg"> -->
+		
+		<div class="title_text2">
+		<font color="black">
+		У другому завданні маємо на вході чергу з символів, черга виводиться у консоль. Далі необхідно вийняти з черги тільки букви. Для цього запускається цикл, який проходить по кожному елементу вхідної черги і розбиває значення по двом новим чергам: у чергу1 ідуть тільки букви, а у чергу2 всі інші символи. При додаванні елементу в будь-яку з черг цей же елемент видаляється із вхідної черги. Цикл повторюється доти, поки вхідна черга не стане порожньою. На виході маємо виведення двох утворених черг у консоль.
+		</div>
+		
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="summary"></a>
+		<b>Висновки:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		У цій роботі було вирішено дві задачі: пошук співпадаючих значень у векторах та пошук букв у черзі. Перша задача була вирішена за допомогою структури даних vector, у другій задачі для пошуку рішення були використані списки, але взаємодія з ними була така, як з чергою (наприклад доступ був лише до першого елемента черги).
+		</font>
+		</div>
+	</div>
+</body>
+
+</html>
