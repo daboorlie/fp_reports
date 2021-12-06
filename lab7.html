@@ -1,0 +1,305 @@
+<html>
+<head>	
+	<title>Лабораторна робота №7</title>
+	<style type="text/css">
+	h1 {
+		font-family: Century Gothic;
+		font-weight: bold;
+		font-style: normal;
+		font-size: 72px;
+		text-align: center;
+		color: #ffffff;
+    }
+	h4 {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+    }
+	.head_block { 
+		width: 100%;
+		padding: 0px;
+		padding-bottom: 0px; 
+		outline: solid 10px #2f2f2f; 
+		border: solid 1px #2f2f2f; 
+		float: center;
+		background-color: #2f2f2f;
+    }
+	.block2 { 
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 10px;
+    }
+	.block3 {
+		width: 100%;
+		padding-left: 64px;
+	}
+	.script_block {
+		font-family: Consolas;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 16px;
+		padding-left: 64px;
+		width: 60%;
+		padding-left: 10px; 
+		border: solid 3px #1d7373; 
+		border-radius: 3px;
+	}
+	.title_text {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		text-align: center;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+	.title_text2 {
+		font-family: Century Gothic;
+		font-weight: normal;
+		font-style: normal;
+		font-size: 28px;
+		color: #ffffff;
+		margin-bottom: 12px;
+	}
+
+	</style>
+</head>
+
+<body>
+	<div class="head_block">
+		<div class="title_text">МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ</div>
+		<div class="title_text">КИЇВСЬКИЙ НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ імені Тараса Шевченка</div>
+		<div class="title_text">ФАКУЛЬТЕТ ІНФОРМАЦІЙНИХ ТЕХНОЛОГІЙ</div>
+		<div class="title_text"><b>Кафедра програмних систем і технологій</b></div>
+		<div class="title_text">Дисципліна:</div>
+		<div class="title_text"><b>«Функціональне програмування»<b></div>
+		<h1>Звіт з лабораторної роботи №7</h1>
+		<div class="title_text">на тему: </div>
+		<div class="title_text"><b>Обробка рядків та файлів мовами функціонального програмування</b></div>
+		<div class="title_text2"><b>Виконав:</b> Бурлай Дмитро Ігорович</div>
+		<div class="title_text2"><b>Група:</b> ІПЗ-42</div>
+		<div class="title_text2"><b>Форма навчання:</b> денна</div>
+		<div class="title_text2"><b>Перевірила:</b> Ніколаєнко Анастасія Юріївна</div>
+		<div class="title_text">2021</div>
+	</div>	
+	
+	<hr width=100% size=1 color=grey>
+	<hr width=100% size=1 color=grey>
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<b>Зміст:</b>
+			</font>
+			<div><a href="#goal" style="padding-left: 64px">Мета роботи</a></div>
+			<div><a href="#task" style="padding-left: 64px">Постановка завдання</a></div>
+			<div><a href="#language" style="padding-left: 64px">Середовище Dr.Racket</a></div>
+			<div><a href="#diagram" style="padding-left: 64px">Структура програми (HIPO діаграма)</a></div>
+			<div><a href="#code" style="padding-left: 64px">Код програми</a></div>
+			<div><a href="#result" style="padding-left: 64px">Результат роботи програми</a></div>
+			<div><a href="#result-check" style="padding-left: 64px">Аналіз достовірності результатів</a></div>
+			<div><a href="#summary" style="padding-left: 64px">Висновки</a></div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="goal"></a>
+		<b>Мета роботи:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		Опанувати теоретичні основи обробки рядків та текстових файлів мовами функціонального програмування та розробити програми їх реалізації
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="task"></a>
+			<b>Постановка завдання:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			1.	Написати процедури, що обробляють рядки, які зчитані з текстових файлів. Результати обробки рядків записати до текстових файлів 
+
+			</font>
+			</div>
+		<img src="task7.jpg">
+	</div>
+	
+	<div>
+		<div class="title_text2">
+			<font color="black" size=36>
+			<a name="language"></a>
+			<b>Середовище Dr.Racket:</b>
+			</font>
+		</div>
+		<div class="title_text2">
+			<font color="black">
+			Dr.Racket підтримує ряд діалектів та стандартів, в тому числі діалект функціональної мови програмування Scheme, яка якраз вивчалася та використовувалася в ході виконання даної роботи.
+			</font>
+		</div>
+	</div>
+		
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="diagram"></a>
+		<b>Структура програми (HIPO діаграма):</b>
+		</font>
+		</div>
+		
+		<img src="diagram7.jpg">
+		
+		<div class="title_text2">
+		<font color="black">
+		
+		</font>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="code"></a>
+		<b>Код програми:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+			<div class="block3">
+				<div class="script_block">
+					<font color="black">
+						<div style="padding-left: 32px; padding-top: 16px">#lang racket</div>
+						<div style="padding-left: 32px">  функція введення числового значення в консоль</div>
+						<div style="padding-left: 32px"> (define (enter-value)</div>
+						<div style="padding-left: 32px">   (string->number (read-line))</div>
+						<div style="padding-left: 32px">   )</div>
+
+						<div style="padding-left: 32px"> ; функція введення n-ої кількості рядків</div>
+						<div style="padding-left: 32px"> (define (enter-text n i list)</div>
+						<div style="padding-left: 32px">   (set! list (flatten (append list (read-line))))</div>
+						<div style="padding-left: 32px">   (if (< i n)</div>
+						<div style="padding-left: 32px">       (enter-text n (+ i 1) list)</div>
+						<div style="padding-left: 32px">       list</div>
+						<div style="padding-left: 32px">       )</div>
+						<div style="padding-left: 32px">   )</div>
+
+						<div style="padding-left: 32px"> ; функція запису рядків зі списку у файл</div>
+						<div style="padding-left: 32px"> (define (write-str list file i n)</div>
+						<div style="padding-left: 32px">   (define str-text (list-ref list i))</div>
+						<div style="padding-left: 32px">   (write str-text file)</div>
+						<div style="padding-left: 32px">   (if (< i (- n 1))</div>
+						<div style="padding-left: 32px">       (write-str list file (+ i 1) n)</div>
+						<div style="padding-left: 32px">       (display "")</div>
+						<div style="padding-left: 32px">       )</div>
+						<div style="padding-left: 32px">   )</div>
+
+						<div style="padding-left: 32px"> ; введення n</div>
+						<div style="padding-left: 32px"> (display "Введіть к-сть рядків: ")</div>
+						<div style="padding-left: 32px"> (define n (enter-value))</div>
+
+						<div style="padding-left: 32px"> ; введення рядків</div>
+						<div style="padding-left: 32px"> (define empty-list (list '()))</div>
+						<div style="padding-left: 32px"> (display "Введіть рядки: ")</div>
+						<div style="padding-left: 32px"> (newline)</div>
+						<div style="padding-left: 32px"> (define str-list (enter-text n 1 empty-list))</div>
+
+						<div style="padding-left: 32px"> ; запис рядків у файл written-text.txt</div>
+						<div style="padding-left: 32px"> (delete-file "written-text.txt")</div>
+						<div style="padding-left: 32px"> (let ((port (open-output-file "written-text.txt"))) </div>
+						<div style="padding-left: 32px">   (write-str str-list port 0 n)</div>
+						<div style="padding-left: 32px">   (close-output-port port))</div>
+
+						<div style="padding-left: 32px"> ; зчитування рядків з файлу</div>
+						<div style="padding-left: 32px"> (define in (open-input-file "written-text.txt"))</div>
+						<div style="padding-left: 32px"> (display "Рядки, зчитані з файлу: ")</div>
+						<div style="padding-left: 32px"> (newline)</div>
+						<div style="padding-left: 32px"> (define read-list (build-list n (lambda (i) (read in))))</div>
+						<div style="padding-left: 32px"> (for ([i (in-range n)])</div>
+						<div style="padding-left: 32px">   (display (list-ref read-list i))</div>
+						<div style="padding-left: 32px">   (newline)</div>
+						<div style="padding-left: 32px">   )</div>
+						<div style="padding-left: 32px"> (close-input-port in)</div>
+
+						<div style="padding-left: 32px"> ; введення даних для заміни слів</div>
+						<div style="padding-left: 32px"> (display "Введіть слово, яке треба замінити: ")</div>
+						<div style="padding-left: 32px"> (newline)</div>
+						<div style="padding-left: 32px"> (define word (read-line))</div>
+						<div style="padding-left: 32px"> (display "Введіть слово, на яке треба замінити попереднє слово: ")</div>
+						<div style="padding-left: 32px"> (newline)</div>
+						<div style="padding-left: 32px"> (define word-replace (read-line))</div>
+
+						<div style="padding-left: 32px"> ; виведення відредагованих рядків</div>
+						<div style="padding-left: 32px"> (display "Список рядків із заміненими словами: ")</div>
+						<div style="padding-left: 32px"> (newline)</div>
+						<div style="padding-left: 32px"> (define new-list (list))</div>
+						<div style="padding-left: 32px"> (for ([i (in-range n)])</div>
+						<div style="padding-left: 32px">   (define row (list-ref read-list i))</div>
+						<div style="padding-left: 32px">   (set! new-list (append new-list (list (string-replace row word word-replace))))</div>
+						<div style="padding-left: 32px">   (display (list-ref new-list i))</div>
+						<div style="padding-left: 32px">   (newline)</div>
+						<div style="padding-left: 32px">   )</div>
+
+						<div style="padding-left: 32px"> ; запис відредагованих рядків у файл new-text.txt</div>
+						<div style="padding-left: 32px"> (delete-file "new-text.txt")</div>
+						<div style="padding-left: 32px"> (let ((port (open-output-file "new-text.txt"))) </div>
+						<div style="padding-left: 32px">   (write-str new-list port 0 n)</div>
+						<div style="padding-left: 32px; padding-bottom: 16px">  (close-output-port port))</div>
+
+					</font>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result"></a>
+		<b>Результат роботи програми:</b>
+		</font>
+		</div>
+		
+		<img src="console7.jpg">
+		
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="result-check"></a>
+		<b>Аналіз достовірності результатів:</b>
+		</font>
+		</div>
+		
+		<div class="title_text2">
+		<font color="black">
+		Як видно зі скріншоту консолі програми та файлів, програма працює правильно.
+		</font>
+		</div>
+		
+		<!-- <img src="solution5.jpg"> -->
+		
+		
+	</div>
+	
+	<div>
+		<div class="title_text2">
+		<font color="black" size=36>
+		<a name="summary"></a>
+		<b>Висновки:</b>
+		</font>
+		</div>
+		<div class="title_text2">
+		<font color="black">
+		У цій роботі було опановано роботу з файлами у мові Racket, а саме: було освоєно запис та зчитування даних з файлів. Також було опановано навички роботи з рядками.
+		</font>
+		</div>
+	</div>
+</body>
+
+</html>
